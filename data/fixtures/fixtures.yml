@@ -1,17 +1,60 @@
-# # Populate this file with data to be loaded by your ORM's *:data-load task.
-# # You can create multiple files in this directory (i.e. 010_users.yml,
-# # 020_articles.yml, etc) which will be loaded in alphabetical order.
-# # 
-# # See documentation for your ORM's *:data-load task for more information.
-# 
-# User:
-#   fabien:
-#     username: fabien
-#     password: changeme
-#     name:     Fabien Potencier
-#     email:    fabien.potencier@symfony-project.com
-#   kris:
-#     username: Kris.Wallsmith
-#     password: changeme
-#     name:     Kris Wallsmith
-#     email:    kris.wallsmith@symfony-project.com
+People:
+<?php
+$lastnames = array(
+  'Smith',
+  'Johnson',
+  'Williams',
+  'Jones',
+  'Brown',
+  'Davis',
+  'Miller',
+  'Wilson',
+  'Moore',
+  'Taylor',
+  'Anderson',
+  'Thomas',
+  'Jackson',
+  'White',
+  'Harris',
+  'Martin'
+);
+
+$firstnames = array(
+  'James',
+  'John',
+  'Robert',
+  'Michael',
+  'William',
+  'David',
+  'Richard',
+  'Joseph',
+  'Mary',
+  'Patricia',
+  'Linda',
+  'Barbara',
+  'Elizabeth',
+  'Jennifer',
+  'Maria',
+  'Susan'
+);
+
+$i = 0;
+
+while ($i < 100):
+  $firstname = $firstnames[rand(0,15)];
+  $lastname = $lastnames[rand(0,15)];
+  ?>
+  people_<?php echo $i; ?>:
+    firstname: <?php echo $firstname; ?>
+
+    lastname: <?php echo $lastname; ?>
+
+    email: <?php echo strtolower($firstname.'.'.$lastname.'@example.com'); ?>
+
+    phone: <?php echo rand(1000000000, 9999999999); ?>
+
+    picture_url: http://ze.hn/60/60/<?php echo strtolower($firstname); ?>
+
+  <?php $i++; ?>
+
+<?php endwhile;
