@@ -1,0 +1,8 @@
+cache/*
+config/databases.yml
+data/people.db
+data/sql/*
+lib/model/doctrine/base/*
+lib/filter/doctrine/base/*
+lib/form/doctrine/base/*
+log/*
