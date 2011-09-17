@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           People
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          people
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display:    [=firstname, =lastname, company_name, email, created_at]
+        sort:       [ 'lastname asc' ]
+      filter:  ~
+      form:
+        display:
+          Identity:    [ firstname, lastname, company_name ]
+          'Contact Informations': [ phone, email, picture_url ]
+      edit:    ~
+      new:     ~
