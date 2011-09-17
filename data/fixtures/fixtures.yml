@@ -38,11 +38,19 @@ $firstnames = array(
   'Susan'
 );
 
+$company_names = array(
+  'ACME',
+  'Clever Age',
+  'Appcelerator'
+);
+
 $i = 0;
 
 while ($i < 100):
   $firstname = $firstnames[rand(0,15)];
   $lastname = $lastnames[rand(0,15)];
+  $company_id = rand(0,10);
+  $company = isset($company_names[$company_id]) ? $company_names[$company_id] : '';
   ?>
   people_<?php echo $i; ?>:
     firstname: <?php echo $firstname; ?>
@@ -54,6 +62,8 @@ while ($i < 100):
     phone: <?php echo rand(1000000000, 9999999999); ?>
 
     picture_url: http://ze.hn/60/60/<?php echo strtolower($firstname); ?>
+
+    company_name: "<?php echo $company ?>"
 
   <?php $i++; ?>
 
