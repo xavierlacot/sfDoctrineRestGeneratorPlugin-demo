@@ -11,4 +11,12 @@
  */
 class peopleActions extends autopeopleActions
 {
+  public function getCreateValidators()
+  {
+    // make created_at and updated_at fields non-required
+    $validators = parent::getCreateValidators();
+    $validators['created_at'] = new sfValidatorDateTime(array('required' => false));
+    $validators['updated_at'] = new sfValidatorDateTime(array('required' => false));
+    return $validators;
+  }
 }
